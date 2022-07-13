@@ -20,10 +20,10 @@
         android:id="@+id/fl_start"
         android:layout_width="@dimen/main_screen_frame_layout_width"
         android:layout_height="@dimen/main_screen_frame_layout_height"
+        android:background="@drawable/item_color_accent_border_ripple_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_title"
-        android:background="@drawable/item_color_accent_border_ripple_background">
+        app:layout_constraintTop_toBottomOf="@id/iv_title">
 
         <TextView
             android:layout_width="wrap_content"

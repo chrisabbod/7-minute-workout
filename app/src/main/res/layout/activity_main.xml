@@ -13,11 +13,11 @@
         android:layout_height="@dimen/main_screen_image_view_height"
         android:contentDescription="@string/start_image"
         android:src="@drawable/img_main_page"
-        app:layout_constraintBottom_toTopOf="@+id/flStart"
+        app:layout_constraintBottom_toTopOf="@+id/fl_start"
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:id="@+id/flStart"
+        android:id="@+id/fl_start"
         android:layout_width="@dimen/main_screen_frame_layout_width"
         android:layout_height="@dimen/main_screen_frame_layout_height"
         app:layout_constraintEnd_toEndOf="parent"

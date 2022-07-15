@@ -1,5 +1,6 @@
 package com.chrisabbod.a7minuteworkout
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +9,6 @@ import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chrisabbod.a7minuteworkout.databinding.ActivityExerciseBinding
 import java.util.Locale
@@ -44,14 +43,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
+        binding?.toolbarExercise?.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         exerciseList = Constants.defaultExerciseList()
 
         tts = TextToSpeech(this, this)
-
-        binding?.toolbarExercise?.setNavigationOnClickListener {
-            onBackPressed()
-        }
 
         setUpRestView()
         setupExerciseStatusRecyclerView()
@@ -156,18 +154,15 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             override fun onFinish() {
 
-                exerciseList!![currentExercisePosition].setIsSelected(false)
-                exerciseList!![currentExercisePosition].setIsCompleted(true)
-                exerciseAdapter!!.notifyDataSetChanged()
-
                 if (currentExercisePosition < exerciseList?.size!! - 1) {
+                    exerciseList!![currentExercisePosition].setIsSelected(false)
+                    exerciseList!![currentExercisePosition].setIsCompleted(true)
+                    exerciseAdapter!!.notifyDataSetChanged()
                     setUpRestView()
                 } else {
-                    Toast.makeText(
-                        this@ExerciseActivity,
-                    "You have completed the 7 minute workout!",
-                    Toast.LENGTH_LONG
-                    ).show()
+                    finish()
+                    val intent = Intent(this@ExerciseActivity, FinishActivity::class.java)
+                    startActivity(intent)
                 }
             }
 

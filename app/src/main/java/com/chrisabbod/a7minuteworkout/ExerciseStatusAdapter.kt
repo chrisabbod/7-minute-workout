@@ -36,7 +36,7 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>) :
                 holder.tvItem.background =
                     ContextCompat.getDrawable(
                         holder.itemView.context,
-                        R.drawable.item_circular_color_accent_background
+                        R.color.black
                     )
                 holder.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
             }

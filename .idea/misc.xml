@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/item_circular_thin_color_accent_border.xml" value="0.2525" />
         <entry key="app/src/main/res/drawable/item_color_accent_border_ripple_background.xml" value="0.2525" />
         <entry key="app/src/main/res/layout/activity_exercise.xml" value="0.31567028985507245" />
+        <entry key="app/src/main/res/layout/activity_finish.xml" value="0.31567028985507245" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31567028985507245" />
         <entry key="app/src/main/res/layout/item_exercise_status.xml" value="0.31567028985507245" />
       </map>

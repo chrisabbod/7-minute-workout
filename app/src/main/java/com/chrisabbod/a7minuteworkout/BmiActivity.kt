@@ -10,6 +10,12 @@ import java.math.RoundingMode
 
 class BmiActivity : AppCompatActivity() {
 
+    companion object {
+        private const val METRIC_UNITS_VIEW = "METRIC_UNITS_VIEW"
+        private const val US_UNITS_VIEW = "US_UNITS_VIEW"
+    }
+    private var currentVisibleView: String = METRIC_UNITS_VIEW
+
     private var binding: ActivityBmiBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +31,17 @@ class BmiActivity : AppCompatActivity() {
         }
         binding?.toolbarBmiActivity?.setNavigationOnClickListener {
             onBackPressed()
+        }
+
+        showMetricUnits()
+
+        binding?.rgUnits?.setOnCheckedChangeListener { _, checkedId: Int ->
+
+            if (checkedId == R.id.rb_metric_units) {
+                showMetricUnits()
+            } else {
+                showUsUnits()
+            }
         }
 
         binding?.btnCalculateUnits?.setOnClickListener {
@@ -43,6 +60,41 @@ class BmiActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+    }
+
+    private fun showMetricUnits() {
+        currentVisibleView = METRIC_UNITS_VIEW
+
+        binding?.apply {
+            tilMetricUnitWeight.visibility = View.VISIBLE
+            tilMetricUnitHeight.visibility = View.VISIBLE
+            tilUsUnitWeight.visibility = View.GONE
+            tilUsUnitHeightFeet.visibility = View.GONE
+            tilUsUnitHeightInch.visibility = View.GONE
+
+            etMetricUnitHeight.text!!.clear()
+            etMetricUnitWeight.text!!.clear()
+
+            llDisplayBmiReult.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun showUsUnits() {
+        currentVisibleView = METRIC_UNITS_VIEW
+
+        binding?.apply {
+            tilMetricUnitWeight.visibility = View.INVISIBLE
+            tilMetricUnitHeight.visibility = View.INVISIBLE
+            tilUsUnitWeight.visibility = View.VISIBLE
+            tilUsUnitHeightFeet.visibility = View.VISIBLE
+            tilUsUnitHeightInch.visibility = View.VISIBLE
+
+            etUsUnitWeight.text!!.clear()
+            etUsUnitHeightFeet.text!!.clear()
+            etUsUnitHeightInch.text!!.clear()
+
+            llDisplayBmiReult.visibility = View.INVISIBLE
         }
     }
 

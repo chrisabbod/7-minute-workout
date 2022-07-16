@@ -43,7 +43,7 @@
         android:layout_height="70dp"
         android:background="@drawable/item_circular_color_accent_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fl_history"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fl_start">
 
@@ -67,8 +67,41 @@
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/default_button_text_size"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fl_BMI"
+        app:layout_constraintStart_toStartOf="@id/fl_BMI"
         app:layout_constraintTop_toBottomOf="@id/fl_BMI" />
+
+    <FrameLayout
+        android:id="@+id/fl_history"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/item_circular_color_accent_background"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fl_BMI"
+        app:layout_constraintTop_toBottomOf="@id/fl_start">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_calendar" />
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="History"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/default_button_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/fl_history"
+        app:layout_constraintStart_toStartOf="@id/fl_history"
+        app:layout_constraintTop_toBottomOf="@id/fl_history" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
